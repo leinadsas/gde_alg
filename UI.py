@@ -35,7 +35,7 @@ def MainMenu():
         try:
             
             
-            menu = int(input("""\n\nFőmenü:
+            menu = int(input("""\nFőmenü:
                    1-es billentyű: Labirintus megjelenítése.
                    2-es billentyű: A kérdésre a válasz kiírása.
                    0-s billentyű: Kilépés
