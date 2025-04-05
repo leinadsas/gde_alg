@@ -48,7 +48,7 @@ def MainMenu():
                 case 3:
                       forbidden = Grid.generate_grid(m)
                       dp, result = Solver.count_paths(m, forbidden)
-                      print("Az adott méretű labirintust {dp} féleképpen lehet bejárni.")
+                      print(f"Az adott méretű labirintust {result} féleképpen lehet bejárni.")
                 case 4:
                       # A labirintus adatainak nullázása.
                       print("Labirintus adatok nullázva.")
