@@ -1,6 +1,5 @@
 import random
 import UI
-from UI import m  # UI modulból importáljuk az 'm' értéket
 
 # Feladata: A tábla logikai reprezentációja.
 # Tárolja a tiltott mezőket.

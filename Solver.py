@@ -1,7 +1,5 @@
 import UI 
 import Grid
-from UI import m # UI modulból importáljuk az 'm' értéket
-from Grid import forbidden # Grid modulból importáljuk a 'forbidden' értéket
 
 # A dinamikus programozási algoritmus megvalósítása.
 # Bemenet: tábla mérete és tiltott mezők.

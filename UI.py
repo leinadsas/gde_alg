@@ -18,6 +18,7 @@ def MainMenu():
     4. A labirintus adatainak nullázása.
     0. Kilépés a programból.
     """
+    
     while True:
         try:
             menu = int(input("""\nFőmenü:
@@ -42,6 +43,7 @@ def MainMenu():
                         except ValueError:
                             print("Hiba: Csak egész számot adjon meg.")
                 case 2:
+                      forbidden = Grid.generate_grid(m)
                       GUI.plot_grid(m, forbidden)
                 case 3:
                       forbidden = Grid.generate_grid(m)
