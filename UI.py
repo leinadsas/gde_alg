@@ -30,6 +30,16 @@ def MainMenu():
             match menu:
                 case 1:
                       # Labirintus méretének megadása.
+                      while True:
+                        try:
+                            m = int(input("Adja meg a labirintus méretét (m ≥ 4): "))
+                            if m >= 4:
+                                print(f"A megadott méret: {m}")
+                                break
+                            else:
+                                print("Hiba: A méret nem lehet kisebb 4-nél.")
+                        except ValueError:
+                            print("Hiba: Csak egész számot adjon meg.")
                 case 2:
                       # Labirintus megjelenítése.
                 case 3:
