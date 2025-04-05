@@ -1,6 +1,9 @@
+import Solver
+import Grid
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
+
 
 def plot_grid(m, forbidden, start=(0, 0), end=None):
     """
@@ -32,7 +35,9 @@ def plot_grid(m, forbidden, start=(0, 0), end=None):
     ax.grid(which='both', color='gray', linestyle='-', linewidth=0.5)
 
     # Címkék
-    ax.set_title(f"Rács: {m}x{m} | Tiltott mezők: {len(forbidden)}", pad=20)
+    forbidden = Grid.generate_grid(m)
+    dp, result2 = Solver.count_paths(m, forbidden)
+    ax.set_title(f"Rács: {m}x{m} | Tiltott mezők: {len(forbidden)} | Utak száma:{result2}", pad=20)
     plt.colorbar(img, ticks=[0.5, 1.0, 2.0, 2.5]).ax.set_yticklabels(['Szabad', 'Kezdő', 'Cél', 'Tiltott'])
 
     plt.show()
