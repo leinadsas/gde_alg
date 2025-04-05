@@ -48,7 +48,7 @@ def MainMenu():
                       GUI.plot_grid(m, forbidden)
                 case 2:
                       forbidden = Grid.generate_grid(m)
-                      result = Solver.count_paths(m, forbidden)
+                      dp, result = Solver.count_paths(m, forbidden)
                       print(f"Az adott méretű labirintust {result} féleképpen lehet bejárni.")
                 case 0:
                     print("Kilépés a programból.")
