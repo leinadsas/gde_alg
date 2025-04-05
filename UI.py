@@ -18,7 +18,7 @@ def MainMenu():
     4. A labirintus adatainak nullázása.
     0. Kilépés a programból.
     """
-    print("\n\nElső lépésként adja meg a labirintus méretét mellyel dolgozni kíván!")
+    print("Első lépésként adja meg a labirintus méretét mellyel dolgozni kíván!")
     # Labirintus méretének megadása.
     while True:
         try:
