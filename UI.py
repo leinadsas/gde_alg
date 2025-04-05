@@ -1,4 +1,3 @@
-import Config
 import Grid
 import Solver
 import GUI
