@@ -1,6 +1,7 @@
 import Config
 import Grid
 import Solver
+import GUI
 
 # Felhasználóval való kommunikáció (input/output).
 # Beolvassa a tábla méretét és a tiltott mezőket.
@@ -41,11 +42,17 @@ def MainMenu():
                         except ValueError:
                             print("Hiba: Csak egész számot adjon meg.")
                 case 2:
-                      # Labirintus megjelenítése.
+                      GUI.plot_grid(m, forbidden)
                 case 3:
-                      # A kérdésre a válasz kiírása.
+                      forbidden = Grid.generate_grid(m)
+                      dp, result = Solver.count_paths(m, forbidden)
+                      print("Az adott méretű labirintust {dp} féleképpen lehet bejárni.")
                 case 4:
                       # A labirintus adatainak nullázása.
+                      print("Labirintus adatok nullázva.")
+                      m = None
+                      forbidden = set()
+                      continue #Visszaugrik a while elejére és új menü jön létre
                 case 0:
                     print("Kilépés a programból.")
                     exit()
