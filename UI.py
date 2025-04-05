@@ -30,9 +30,9 @@ def MainMenu():
         except ValueError:
             print("Hiba: Csak egész számot adjon meg.")
     
+    forbidden = Grid.generate_grid(m)
     while True:
         try:
-            
             
             menu = int(input("""\nFőmenü:
                    1-es billentyű: Labirintus megjelenítése.
@@ -43,10 +43,8 @@ def MainMenu():
             
             match menu:
                 case 1:
-                      forbidden = Grid.generate_grid(m)
                       GUI.plot_grid(m, forbidden)
                 case 2:
-                      forbidden = Grid.generate_grid(m)
                       dp, result = Solver.count_paths(m, forbidden)
                       print(f"Az adott méretű labirintust {result} féleképpen lehet bejárni.")
                 case 0:
