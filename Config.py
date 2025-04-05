@@ -1,5 +1,5 @@
+import os
+# Feladata: kisebb függvények tárolása
 
-
-# Feladata: Állandó értékek (pl. tábla méretének korlátai), debug flag, stb. tárolása.
-# 
-# 
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
