@@ -21,8 +21,8 @@ def MainMenu():
     # Labirintus méretének megadása.
     while True:
         try:
-            m = int(input("Adja meg a labirintus méretét (m ≥ 4): "))
-            if m >= 4:
+            m = int(input("Adja meg a labirintus méretét (m ≥ 5): "))
+            if m >= 5:
                 print(f"A megadott méret: {m}")
                 break
             else:

@@ -1,25 +1,24 @@
-import UI
+import UI 
 import Grid
 
-def count_paths(m, forbidden):
-    dp = [[0 for _ in range(m)] for _ in range(m)]
-    forbidden_set = set(forbidden)
+# A dinamikus programozási algoritmus megvalósítása.
+# Bemenet: tábla mérete és tiltott mezők.
+# Kimenet: az elérési módok száma.
+
+def count_paths(m, forbidden): #bemenet a labirintus mérete és tiltott mezők
+    dp = [[0 for _ in range(m)] for _ in range(m)] #két dimenziós lista a labirintus méretével, kezdetben mindegyik 0
+    forbidden_set = set(forbidden) # tiltott mezők halmaza az összes tiltott cellával a gyorsabb ellenőrzéshez
     
-    # Kezdőpont (bal alsó sarok) ellenőrzése
-    if (m-1, 0) not in forbidden_set:
-        dp[m-1][0] = 1  # Csak 1 út vezet a kezdőpontba (maga a kezdőpont)
+    if (m-1, 0) not in forbidden_set: #kezdőpont (bal alsó sarok) ne legyen tiltott
+        dp[m-1][0] = 1 #kezdőpont beállítása
     
-    # Dinamikus programozás: jobbra és felfelé haladás
-    for i in reversed(range(m)):       # Sorok alulról felfelé
-        for j in range(m):             # Oszlopok balról jobbra
-            if (i, j) == (m-1, 0):    # Kezdőpontot kihagyjuk (már beállítottuk)
-                continue
-            if (i, j) in forbidden_set:
+    for i in reversed(range(m)): #visszafelé iterálom a mátrix celláit i a sor
+        for j in range(m): #j a oszlop
+            if (i, j) in forbidden_set: # ha a mező tiltott 0 az érték
                 dp[i][j] = 0
-            else:
-                # Az aktuális mezőbe csak alulról (i+1, j) vagy balról (i, j-1) érkezhetünk
-                from_down = dp[i+1][j] if i+1 < m else 0
-                from_left = dp[i][j-1] if j-1 >= 0 else 0
-                dp[i][j] = from_down + from_left
-    
-    return dp, dp[0][m-1]  # Visszaadjuk a DP táblát és a célmező értékét
+            else:                       # ha nem tiltott (és nem megyünk ki a mátrixból) összeadjuk az elérhető utak számát
+                if i+1 < m:
+                    dp[i][j] += dp[i+1][j]
+                if j-1 >= 0:
+                    dp[i][j] += dp[i][j-1]
+    return dp, dp[0][m-1]           #visszatér a táblázattal (vizualizáció miatt később jól jöhet) és a jobb felső cella értékét, ami a lehetséges útvonalak számával egyenlő
